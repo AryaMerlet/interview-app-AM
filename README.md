@@ -5,7 +5,7 @@ This is a very basic Expo app.
 **Fork the repo**, clone it, create a new branch then install everything with `yarn` and start doing the exercises :
 
 - Every exercise should be a commit.
-- Once you've finished, open a Pull Request and send us the link !
+- Once you've finished, open a Pull Request on the forked repo and send us the link !
 
 Install Expo GO on your smartphone, launch the server with `yarn start` and scan the QR Code to get the app started !
 
