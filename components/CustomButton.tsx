@@ -18,7 +18,7 @@ export default function CustomButton({title, onPress}: Props) {
     </View>
   );
 
-  /* use pressable or touchableopacity to use style props, no need to use View when doing so
+  /* use pressable or touchableopacity to use style props, not necessary to use View when doing so
 ...
 import {Pressable, Text} from 'react-native';
 ...
