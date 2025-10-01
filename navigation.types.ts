@@ -4,14 +4,14 @@ import {useNavigation as useRootNavigation} from '@react-navigation/native';
 // source of truth for route names
 export const ROUTES = {
   HOME: 'Home',
-  AUXILIARY: 'Auxiliary',
+  PRODUCTS: 'Products',
   // use as const to make the object properties readonly and ensure type safety
 } as const;
 
 // Define what parameters each route expects
 export type RootStackParamList = {
   [ROUTES.HOME]: undefined;
-  [ROUTES.AUXILIARY]: undefined;
+  [ROUTES.PRODUCTS]: undefined;
 };
 
 // Type-safe navigation prop with autocomplete and param checking for all routes

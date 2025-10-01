@@ -1,6 +1,6 @@
 import React from 'react';
 import HomeScreen from './screens/HomeScreen';
-import AuxiliaryScreen from './screens/AuxiliaryScreen';
+import ProductScreen from './screens/ProductScreen';
 import {Provider} from 'react-redux';
 import {store} from './store';
 import {createStaticNavigation} from '@react-navigation/native';
@@ -19,7 +19,7 @@ const RootStack = createNativeStackNavigator({
   initialRouteName: ROUTES.HOME,
   screens: {
     [ROUTES.HOME]: HomeScreen,
-    [ROUTES.AUXILIARY]: AuxiliaryScreen,
+    [ROUTES.PRODUCTS]: ProductScreen,
   },
 });
 
