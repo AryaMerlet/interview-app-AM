@@ -1,4 +1,3 @@
-import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {useNavigation as useRootNavigation} from '@react-navigation/native';
 import {BottomTabNavigationProp} from '@react-navigation/bottom-tabs';
 
