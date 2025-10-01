@@ -33,12 +33,6 @@ export default function HomeScreen() {
           dispatch(decrement());
         }}
       />
-      <CustomButton
-        title="See Products"
-        onPress={() => {
-          navigation.navigate(ROUTES.PRODUCTS);
-        }}
-      />
       <StatusBar style="auto" />
     </View>
   );
