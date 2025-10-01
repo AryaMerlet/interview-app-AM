@@ -6,12 +6,14 @@ import CustomButton from '../components/CustomButton';
 import {decrement, increment} from '../store/feature/counter/counterSlice';
 // import useSelector and useDispatch hooks from react-redux
 import {useSelector, useDispatch} from 'react-redux';
+import {ROUTES, useNavigation} from '../navigation.types';
 
 export default function HomeScreen() {
   //get state from the store, state = entire store (state:any), counter = key defined in index.ts, property from the CounterState interface
   const counter = useSelector((state: any) => state.counter.value);
   //dispatch actions to the store
   const dispatch = useDispatch();
+  const navigation = useNavigation();
 
   return (
     <View style={styles.container}>
@@ -29,6 +31,12 @@ export default function HomeScreen() {
         //dispatch decrement action on button press
         onPress={() => {
           dispatch(decrement());
+        }}
+      />
+      <CustomButton
+        title="Go to Auxiliary"
+        onPress={() => {
+          navigation.navigate(ROUTES.AUXILIARY);
         }}
       />
       <StatusBar style="auto" />

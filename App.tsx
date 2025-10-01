@@ -1,13 +1,28 @@
 import React from 'react';
 import HomeScreen from './screens/HomeScreen';
+import AuxiliaryScreen from './screens/AuxiliaryScreen';
 import {Provider} from 'react-redux';
 import {store} from './store';
+import {createStaticNavigation} from '@react-navigation/native';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import {ROUTES, type RootStackParamList} from './navigation.types';
 
 const App = () => {
   return (
     <Provider store={store}>
-      <HomeScreen />
+      <Navigation />
     </Provider>
   );
 };
+
+const RootStack = createNativeStackNavigator({
+  initialRouteName: ROUTES.HOME,
+  screens: {
+    [ROUTES.HOME]: HomeScreen,
+    [ROUTES.AUXILIARY]: AuxiliaryScreen,
+  },
+});
+
+const Navigation = createStaticNavigation(RootStack);
+
 export default App;
