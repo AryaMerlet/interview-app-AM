@@ -1,5 +1,6 @@
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {useNavigation as useRootNavigation} from '@react-navigation/native';
+import {BottomTabNavigationProp} from '@react-navigation/bottom-tabs';
 
 // source of truth for route names
 export const ROUTES = {
@@ -15,7 +16,7 @@ export type RootStackParamList = {
 };
 
 // Type-safe navigation prop with autocomplete and param checking for all routes
-type NavigationProp = NativeStackNavigationProp<RootStackParamList>;
+type NavigationProp = BottomTabNavigationProp<RootStackParamList>;
 
 // Type safe navigation hook to use in components and screens
 export const useNavigation = () => {
