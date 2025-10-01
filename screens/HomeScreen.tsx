@@ -34,9 +34,9 @@ export default function HomeScreen() {
         }}
       />
       <CustomButton
-        title="Go to Auxiliary"
+        title="See Products"
         onPress={() => {
-          navigation.navigate(ROUTES.AUXILIARY);
+          navigation.navigate(ROUTES.PRODUCTS);
         }}
       />
       <StatusBar style="auto" />
