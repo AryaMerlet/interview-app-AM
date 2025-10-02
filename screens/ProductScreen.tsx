@@ -8,55 +8,10 @@ import {
   FlatList,
   Image,
 } from 'react-native';
-import {BASE_URL} from '../constants';
-
-// Define the structure of a product object
-interface Products {
-  id: number;
-  title: string;
-  price: number;
-  description: string;
-  category: string;
-  image: string;
-  rating: {
-    rate: number;
-    count: number;
-  };
-}
+import {useGetProductsQuery} from '../store/feature/products/productsSlice';
 
 export default function ProductScreen() {
-  // array of products fetched from the API, empty as initial state
-  const [data, setData] = useState<Products[]>([]);
-  // loading state for the API call
-  const [isLoading, setLoading] = useState(true);
-  // error state for the API call
-  const [error, setError] = useState<string | null>(null);
-
-  // async function to fetch data from the API
-  const getApi = async () => {
-    try {
-      setLoading(true);
-      setError(null);
-      const response = await fetch(`${BASE_URL}products`);
-      if (!response.ok) {
-        throw new Error('failed to fetch');
-      }
-      const result = await response.json();
-      setData(result);
-    } catch (error) {
-      // if error is an instance of Error, use its message; otherwise, use a generic message
-      setError(error instanceof Error ? error.message : 'Error fetching data');
-      console.error(error);
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  // useEffect is a hook that allows you to perform side effects after rendering
-  // second argument [] means it runs only once when the component is mounted
-  useEffect(() => {
-    getApi();
-  }, []);
+  const {data: products, isLoading, error} = useGetProductsQuery({});
 
   // show loading indicator while fetching data
   if (isLoading) {
@@ -71,7 +26,7 @@ export default function ProductScreen() {
   if (error) {
     return (
       <View style={styles.container}>
-        <Text>Error: {error}</Text>
+        <Text>Error: {error.toString()}</Text>
       </View>
     );
   }
@@ -79,7 +34,7 @@ export default function ProductScreen() {
   return (
     <View style={styles.container}>
       <FlatList
-        data={data}
+        data={products}
         keyExtractor={item => item.id.toString()}
         renderItem={({item}) => (
           <View style={styles.productCard}>
